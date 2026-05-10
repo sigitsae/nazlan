@@ -1,23 +1,14 @@
-{
-  "name": "Nazlan - Content Creator Progress",
-  "short_name": "Nazlan",
-  "description": "Daily Vlog Nazlan",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#0A1628",
-  "theme_color": "#E8192C",
-  "icons": [
-    {
-      "src": "icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ]
-}
+"icons": [
+  {
+    "src": "icon.png",
+    "sizes": "192x192",
+    "type": "image/png",
+    "purpose": "any maskable"
+  },
+  {
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png",
+    "purpose": "any maskable"
+  }
+]

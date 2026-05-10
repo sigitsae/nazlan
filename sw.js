@@ -1,9 +1,11 @@
-const CACHE_NAME = 'nazlan-v1';
+const CACHE_NAME = 'nazlan-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
-  '/script.js'
+  '/script.js',
+  '/manifest.json',
+  '/icon.png'
 ];
 
 // Install event: Cache the files
@@ -13,6 +15,7 @@ self.addEventListener('install', event => {
       .then(cache => {
         return cache.addAll(urlsToCache);
       })
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -21,9 +24,9 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
       .then(response => {
-        // Return cached version or fetch from network
         return response || fetch(event.request);
       })
+      .catch(() => caches.match('/index.html'))
   );
 });
 
@@ -38,6 +41,6 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
