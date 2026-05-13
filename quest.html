@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAZLAN — Daily Content · Level 2 · Hangtuah Jakarta</title>
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Nazlan SAE+ Camera Confidence Program — Bulan 3 Level 2">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NAZLAN">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:  #080808;
+  --dark:   #111111;
+  --card:   #181818;
+  --border: #282828;
+  --red:    #E8192C;
+  --red2:   #FF3347;
+  --gold:   #F5C518;
+  --gold2:  #FFD84D;
+  --white:  #F2F2F2;
+  --grey:   #777777;
+  --muted:  #444444;
+  --teal:   #00D4AA;
+  --blue:   #0D1B3E;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Barlow Condensed',sans-serif;
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+}
+
+/* ── COURT LINES BG ── */
+.court-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  opacity:0.04;
+  background-image:
+    linear-gradient(0deg,transparent 49%,rgba(255,255,255,1) 49%,rgba(255,255,255,1) 51%,transparent 51%),
+    linear-gradient(90deg,transparent 49%,rgba(255,255,255,1) 49%,rgba(255,255,255,1) 51%,transparent 51%);
+  background-size:120px 120px;
+}
+.court-arc{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;border-radius:50%;
+  border:1px solid rgba(255,255,255,0.04);
+  z-index:0;pointer-events:none;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:all 0.3s;
+}
+nav.scrolled{
+  background:rgba(8,8,8,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:20px;letter-spacing:3px;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo .dot{
+  width:8px;height:8px;background:var(--red);border-radius:50%;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.6)}}
+.nav-links{display:flex;gap:24px;}
+.nav-links a{
+  color:var(--grey);text-decoration:none;font-size:12px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  transition:color 0.2s;font-weight:600;
+}
+.nav-links a:hover{color:var(--white);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100svh;position:relative;z-index:1;
+  display:flex;align-items:flex-end;
+  padding:0 24px 48px;
+  overflow:hidden;
+}
+.hero-slash{
+  position:absolute;top:0;right:0;width:55%;height:100%;
+  background:linear-gradient(135deg,transparent 40%,rgba(232,25,44,0.08) 40%);
+  pointer-events:none;
+}
+.hero-bg-text{
+  position:absolute;
+  right:-10px;top:50%;transform:translateY(-50%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(100px,22vw,320px);
+  color:rgba(255,255,255,0.03);
+  line-height:1;pointer-events:none;
+  letter-spacing:-5px;white-space:nowrap;
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1200px;width:100%;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:flex-end;
+}
+.hero-left{animation:fadeUp 1s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);margin-bottom:16px;
+}
+.hero-tag span{width:24px;height:1px;background:var(--red);display:block;}
+.hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(60px,11vw,160px);
+  line-height:0.9;letter-spacing:-2px;color:var(--white);
+}
+.hero-title .red{color:var(--red);}
+.hero-title .gold{color:var(--gold);}
+.hero-sub{
+  margin-top:16px;font-size:16px;font-weight:600;
+  letter-spacing:1px;color:var(--grey);line-height:1.5;
+  text-transform:uppercase;
+}
+.hero-sub strong{color:var(--white);}
+.hero-cta{
+  margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;
+  animation:fadeUp 1s 0.4s ease both;
+}
+.btn{
+  padding:11px 24px;border-radius:4px;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:15px;letter-spacing:2px;
+  cursor:pointer;border:none;text-decoration:none;
+  transition:all 0.25s;display:inline-block;
+}
+.btn-red{background:var(--red);color:white;}
+.btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(232,25,44,0.4);}
+.btn-outline{background:transparent;color:var(--white);border:1px solid var(--muted);}
+.btn-outline:hover{border-color:var(--white);}
+
+.hero-right{
+  display:flex;flex-direction:column;gap:10px;
+  animation:fadeUp 1s 0.2s ease both;
+}
+.hero-stat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:16px 20px;
+  display:flex;align-items:center;gap:16px;
+  transition:all 0.3s;
+}
+.hero-stat:hover{border-color:var(--red);transform:translateX(6px);}
+.hero-stat-num{
+  font-family:'Bebas Neue',sans-serif;font-size:44px;
+  line-height:1;min-width:64px;
+}
+.hero-stat-num.red{color:var(--red);}
+.hero-stat-num.gold{color:var(--gold);}
+.hero-stat-num.white{color:var(--white);}
+.hero-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);font-weight:600;}
+.hero-stat-desc{font-size:14px;font-weight:700;color:var(--white);margin-top:2px;}
+.hangtuah-badge{
+  background:linear-gradient(135deg,var(--blue),#0A1428);
+  border:1px solid rgba(245,197,24,0.3);
+  border-radius:8px;padding:14px 18px;
+  display:flex;align-items:center;gap:10px;
+}
+/* ── VIDEO GALLERY BUTTON ── */
+.video-gallery-btn{
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(135deg,#1A0A0C,#110608);
+  border:1px solid rgba(232,25,44,0.4);
+  border-radius:8px;padding:14px 18px;
+  text-decoration:none;
+  transition:all 0.3s;
+  position:relative;overflow:hidden;
+}
+.video-gallery-btn::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(232,25,44,0.08),transparent);
+  pointer-events:none;
+}
+.video-gallery-btn:hover{
+  border-color:var(--red2);
+  transform:translateX(4px);
+  box-shadow:0 4px 20px rgba(232,25,44,0.25);
+}
+.vgb-left{display:flex;align-items:center;gap:12px;}
+.vgb-icon{font-size:26px;flex-shrink:0;}
+.vgb-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;letter-spacing:2px;color:var(--red2);
+}
+.vgb-sub{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(232,25,44,0.55);margin-top:1px;}
+.vgb-arrow{
+  font-size:20px;color:var(--red);
+  transition:transform 0.3s;flex-shrink:0;
+}
+.video-gallery-btn:hover .vgb-arrow{transform:translateX(4px);}
+
+.hb-icon{font-size:24px;}
+.hb-name{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:2px;color:var(--gold);}
+.hb-sub{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(245,197,24,0.6);}
+
+/* ── LEVEL TICKER ── */
+.level-section{
+  position:relative;z-index:1;background:var(--red);
+  padding:16px 24px;overflow:hidden;
+}
+.level-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;
+}
+.level-text{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(14px,3vw,24px);letter-spacing:2px;color:white;
+}
+.level-text em{color:rgba(255,255,255,0.6);font-style:normal;}
+.level-pills{display:flex;gap:6px;flex-wrap:wrap;}
+.level-pill{
+  background:rgba(0,0,0,0.25);color:white;
+  padding:5px 12px;border-radius:100px;
+  font-size:11px;letter-spacing:1px;font-weight:700;text-transform:uppercase;
+}
+
+/* ── SECTION SHARED ── */
+.section{
+  max-width:1200px;margin:0 auto;
+  padding:64px 24px;position:relative;z-index:1;
+}
+.s-tag{
+  font-family:'DM Mono',monospace;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);margin-bottom:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.s-tag::before{content:'';width:20px;height:1px;background:var(--red);}
+.s-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(36px,5vw,72px);
+  letter-spacing:-1px;line-height:1;
+  color:var(--white);margin-bottom:36px;
+}
+.s-title .accent{color:var(--red);}
+.s-title .gold{color:var(--gold);}
+
+/* ── ROADMAP ── */
+.road-section{background:var(--dark);border-top:1px solid var(--border);}
+.road-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px;
+}
+.road-card{
+  background:var(--card);padding:24px 20px;
+  position:relative;overflow:hidden;transition:all 0.3s;
+}
+.road-card:first-child{border-radius:8px 0 0 8px;}
+.road-card:last-child{border-radius:0 8px 8px 0;}
+.road-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--border);}
+.road-card.done::before{background:var(--teal);}
+.road-card.current::before{background:var(--gold);}
+.road-card.locked::before{background:var(--muted);}
+.road-card:hover{background:#1F1F1F;}
+.road-num{
+  font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;
+  color:rgba(255,255,255,0.06);position:absolute;right:12px;bottom:12px;
+}
+.road-badge{
+  display:inline-block;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  font-family:'DM Mono',monospace;font-weight:500;
+  padding:4px 10px;border-radius:100px;margin-bottom:12px;
+}
+.badge-done{background:rgba(0,212,170,0.15);color:var(--teal);border:1px solid rgba(0,212,170,0.3);}
+.badge-current{background:rgba(245,197,24,0.15);color:var(--gold);border:1px solid rgba(245,197,24,0.3);}
+.badge-locked{background:rgba(255,255,255,0.05);color:var(--grey);border:1px solid var(--border);}
+.road-month{font-family:'Bebas Neue',sans-serif;font-size:10px;letter-spacing:2px;color:var(--grey);text-transform:uppercase;margin-bottom:4px;}
+.road-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;color:var(--white);margin-bottom:6px;}
+.road-card.done .road-title{color:var(--teal);}
+.road-card.current .road-title{color:var(--gold);}
+.road-card.locked .road-title{color:var(--muted);}
+.road-desc{font-size:12px;color:var(--grey);line-height:1.6;font-weight:400;}
+
+/* ── WHY STILL LVL 2 ── */
+.why-section{background:var(--black);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.why-card{
+  border-radius:8px;padding:28px;border:1px solid var(--border);
+  background:var(--card);transition:all 0.3s;position:relative;overflow:hidden;
+}
+.why-card:hover{border-color:var(--red);}
+.why-card.highlight{background:linear-gradient(135deg,#1A0A0C,var(--card));border-color:rgba(232,25,44,0.3);}
+.why-icon{font-size:32px;margin-bottom:14px;display:block;}
+.why-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--white);margin-bottom:8px;}
+.why-text{font-size:14px;color:var(--grey);line-height:1.7;font-weight:400;}
+.why-text strong{color:var(--white);}
+
+/* ═══════════════════════════════════════════
+   ACCORDION TUGAS — PENGGANTI TABS
+   ═══════════════════════════════════════════ */
+#tugas{position:relative;z-index:1;}
+.accordion-section{
+  background:var(--dark);border-top:1px solid var(--border);
+}
+.accordion-wrap{
+  max-width:1200px;margin:0 auto;padding:64px 24px;
+}
+.accordion-header-block{margin-bottom:32px;}
+
+.accordion-item{
+  border:1px solid var(--border);
+  border-radius:8px;
+  margin-bottom:8px;
+  overflow:hidden;
+  transition:border-color 0.3s;
+}
+.accordion-item.open{border-color:var(--red);}
+
+.accordion-trigger{
+  width:100%;
+  background:var(--card);
+  border:none;
+  padding:18px 20px;
+  display:flex;align-items:center;
+  gap:12px;
+  cursor:pointer;
+  transition:background 0.2s;
+  text-align:left;
+}
+.accordion-trigger:hover{background:#1F1F1F;}
+.accordion-item.open .accordion-trigger{
+  background:#1A0A0C;
+  border-bottom:1px solid var(--border);
+}
+
+.acc-icon{font-size:22px;flex-shrink:0;}
+.acc-label{
+  flex:1;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px;letter-spacing:2px;color:var(--white);
+}
+.acc-count{
+  font-family:'DM Mono',monospace;font-size:11px;
+  background:var(--border);color:var(--grey);
+  padding:3px 8px;border-radius:4px;flex-shrink:0;
+  transition:all 0.2s;
+}
+.accordion-item.open .acc-count{background:var(--red);color:white;}
+.acc-arrow{
+  width:24px;height:24px;flex-shrink:0;
+  border:1px solid var(--muted);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--grey);font-size:14px;
+  transition:transform 0.3s, border-color 0.2s;
+}
+.accordion-item.open .acc-arrow{
+  transform:rotate(180deg);
+  border-color:var(--red);color:var(--red);
+}
+
+.accordion-body{
+  display:none;background:var(--black);
+}
+.accordion-item.open .accordion-body{display:block;}
+
+.acc-cat-tip{
+  padding:12px 20px;
+  background:rgba(232,25,44,0.06);
+  border-bottom:1px solid var(--border);
+  font-size:13px;color:rgba(255,255,255,0.55);
+  line-height:1.5;font-weight:400;
+}
+
+.tasks-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:8px;
+  padding:16px;
+}
+.task-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:6px;padding:14px 16px;
+  display:flex;align-items:flex-start;gap:12px;
+  cursor:pointer;transition:all 0.2s;
+  position:relative;overflow:hidden;
+}
+.task-card::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--border);transition:background 0.2s;
+}
+.task-card:hover{border-color:var(--muted);}
+.task-card:hover::before{background:var(--red);}
+.task-card.done{background:#0D1A0D;border-color:#1A3D1A;}
+.task-card.done::before{background:var(--teal);}
+.task-card.done .task-text{color:var(--grey);text-decoration:line-through;}
+.task-num{
+  font-family:'DM Mono',monospace;font-size:10px;
+  color:var(--muted);white-space:nowrap;padding-top:2px;min-width:24px;
+}
+.task-text{font-size:13px;color:var(--white);flex:1;line-height:1.5;font-weight:400;}
+.task-check{
+  width:20px;height:20px;border-radius:4px;flex-shrink:0;
+  border:1.5px solid var(--muted);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;transition:all 0.2s;margin-left:auto;
+}
+.task-card.done .task-check{background:var(--teal);border-color:var(--teal);color:black;font-weight:700;}
+
+/* ── TARGET BULAN 3 ── */
+.target-section{background:var(--dark);border-top:1px solid var(--border);}
+.target-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.target-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:24px;
+  transition:all 0.3s;position:relative;overflow:hidden;
+}
+.target-card:hover{border-color:var(--gold);}
+.target-card::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+.target-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--gold);line-height:1;}
+.target-unit{font-size:14px;color:var(--grey);font-weight:600;}
+.target-label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--grey);margin-top:4px;font-weight:600;}
+.target-desc{margin-top:10px;font-size:13px;color:var(--grey);line-height:1.6;font-weight:400;}
+
+/* ── PROGRESS TRACKER ── */
+.progress-section{background:var(--black);}
+.prog-overall{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:28px;margin-bottom:20px;
+}
+.prog-label-row{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;
+}
+.prog-label-text{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:2px;}
+.prog-pct{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--gold);}
+.prog-track{background:var(--border);border-radius:100px;height:8px;overflow:hidden;}
+.prog-fill{
+  height:100%;border-radius:100px;
+  background:linear-gradient(90deg,var(--red),var(--gold));
+  transition:width 1s ease;
+}
+.prog-milestones{display:flex;justify-content:space-between;margin-top:6px;}
+.prog-ms{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;}
+
+/* Progress cats — 2 kolom mobile-friendly */
+.prog-cats{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
+.prog-cat{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:8px;padding:16px 12px;
+  transition:all 0.3s;
+}
+.prog-cat:hover{border-color:var(--muted);}
+.prog-cat-num{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;}
+.prog-cat-num.c-a{color:var(--red);}
+.prog-cat-num.c-b{color:#7C5CBF;}
+.prog-cat-num.c-c{color:var(--teal);}
+.prog-cat-num.c-d{color:var(--gold);}
+.prog-cat-num.c-e{color:#4CAF50;}
+.prog-cat-num.c-f{color:#FF6B35;}
+.prog-cat-of{font-size:12px;color:var(--muted);}
+.prog-cat-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--grey);margin-top:3px;font-weight:600;}
+
+/* ── LAPORAN ── */
+.report-section{background:var(--dark);border-top:1px solid var(--border);}
+.report-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.report-card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:24px;}
+.report-card h3{
+  font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;
+  color:var(--white);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border);
+}
+.insight-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.insight-list li{font-size:13px;color:var(--grey);line-height:1.6;font-weight:400;display:flex;align-items:flex-start;gap:8px;}
+.insight-list li::before{content:'→';color:var(--red);flex-shrink:0;font-weight:700;}
+.insight-list li.good::before{content:'✓';color:var(--teal);}
+.insight-list li.bad::before{content:'!';color:var(--gold);}
+.insight-list li strong{color:var(--white);}
+.report-divider{margin:14px 0;border:none;border-top:1px solid var(--border);}
+
+/* ── COACH ── */
+.coach-section{background:linear-gradient(135deg,#0D0D0D,#1A0A0C);border-top:1px solid var(--border);}
+.coach-inner{
+  max-width:1200px;margin:0 auto;padding:64px 24px;
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.coach-quote{position:relative;padding-left:28px;}
+.coach-quote::before{
+  content:'"';position:absolute;left:0;top:-16px;
+  font-family:'Bebas Neue',sans-serif;font-size:100px;color:var(--red);
+  opacity:0.3;line-height:1;
+}
+.coach-text{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(18px,2.5vw,28px);font-weight:700;
+  line-height:1.4;color:var(--white);font-style:italic;
+}
+.coach-sig{margin-top:16px;font-size:12px;color:var(--grey);letter-spacing:1px;font-weight:600;}
+.coach-sig span{color:var(--red);}
+.coach-right{display:flex;flex-direction:column;gap:14px;}
+.coach-card{
+  background:rgba(255,255,255,0.04);border:1px solid var(--border);
+  border-radius:8px;padding:18px;display:flex;gap:12px;align-items:flex-start;
+  transition:all 0.3s;
+}
+.coach-card:hover{border-color:var(--red);background:rgba(232,25,44,0.05);}
+.coach-card-icon{font-size:22px;flex-shrink:0;}
+.coach-card-title{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:1px;color:var(--white);margin-bottom:3px;}
+.coach-card-text{font-size:12px;color:var(--grey);line-height:1.6;font-weight:400;}
+
+/* ── CLOSING ── */
+.closing{
+  background:var(--red);padding:64px 24px;
+  text-align:center;position:relative;overflow:hidden;z-index:1;
+}
+.closing::before{
+  content:'22';position:absolute;
+  font-family:'Bebas Neue',sans-serif;font-size:400px;
+  color:rgba(0,0,0,0.1);line-height:1;
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+}
+.closing-inner{position:relative;z-index:1;}
+.closing-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(50px,10vw,140px);
+  color:white;line-height:1;letter-spacing:-2px;
+}
+.closing-sub{font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:10px;}
+.closing-contact{margin-top:32px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.closing-contact a{
+  color:white;text-decoration:none;font-size:12px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  padding:9px 20px;border:1px solid rgba(255,255,255,0.4);
+  border-radius:4px;transition:all 0.3s;
+}
+.closing-contact a:hover{background:white;color:var(--red);}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:all 0.7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:20px;right:20px;z-index:999;
+  background:var(--teal);color:black;
+  padding:9px 18px;border-radius:4px;
+  font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1px;
+  transform:translateY(60px);opacity:0;transition:all 0.4s;
+}
+.toast.show{transform:none;opacity:1;}
+
+/* ════════════════════════════
+   RESPONSIVE — MOBILE
+   ════════════════════════════ */
+@media(max-width:900px){
+  nav{padding:12px 18px;}
+  .nav-links{display:none;}
+
+  .hero{padding:80px 18px 36px;}
+  .hero-inner{grid-template-columns:1fr;gap:28px;}
+  .hero-right{gap:8px;}
+  .hero-bg-text{font-size:22vw;opacity:0.025;}
+
+  .level-section{padding:12px 18px;}
+  .level-text{font-size:13px;}
+  .level-pills{gap:4px;}
+  .level-pill{font-size:10px;padding:4px 10px;}
+
+  .section,.accordion-wrap{padding:48px 18px;}
+
+  .road-grid{grid-template-columns:1fr 1fr;gap:2px;}
+  .road-card:first-child{border-radius:8px 0 0 0;}
+  .road-card:last-child{border-radius:0 0 8px 8px;}
+
+  .why-grid{grid-template-columns:1fr;}
+  .target-grid{grid-template-columns:1fr;}
+  .report-cards{grid-template-columns:1fr;}
+  .coach-inner{grid-template-columns:1fr;gap:32px;}
+
+  /* 10 kotak = 2 kolom × 5 baris, semua sama lebar */
+  .prog-cats{grid-template-columns:repeat(2,1fr);}
+  .prog-cat{grid-column:auto !important;}
+
+  .tasks-grid{grid-template-columns:1fr;padding:12px;}
+}
+
+@media(max-width:480px){
+  .road-grid{grid-template-columns:1fr;}
+  .road-card:first-child{border-radius:8px 8px 0 0;}
+  .road-card:last-child{border-radius:0 0 8px 8px;}
+  .hero-title{font-size:clamp(52px,15vw,80px);}
+
+  .prog-cats{grid-template-columns:repeat(2,1fr);}
+  .prog-cat{grid-column:auto !important;}
+}
+</style>
+</head>
+<body>
+
+<div class="court-bg"></div>
+<div class="court-arc"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="dot"></div>
+    NAZLAN <span style="color:var(--red);margin:0 4px">/</span> SAE+
+  </div>
+  
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-slash"></div>
+  <div class="hero-bg-text">NAZLAN</div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag"><span></span> SAE+ · Camera Confidence Program</div>
+      <div class="hero-title">
+        NAZLAN<br>
+        <span class="red">DAILY</span><br>
+        <span class="gold">CONTENT</span>
+      </div>
+      <p class="hero-sub">
+        <strong>Level 2 — Expanding Space</strong><br>
+        Bulan 3 · Tetap Jaga Ritme<br>
+       </p>
+      
+    </div>
+    <div class="hero-right">
+      <a href="index.html" class="video-gallery-btn">
+        <div class="vgb-left">
+          <span class="vgb-icon">🎬</span>
+          <div>
+            <div class="vgb-title">TONTON SEMUA VIDEO</div>
+            <div class="vgb-sub">Galeri Kiriman Nazlan · Bulan 1–3</div>
+          </div>
+        </div>
+        <span class="vgb-arrow">→</span>
+      </a>
+      <div class="hero-stat">
+        <div class="hero-stat-num red">3</div>
+        <div>
+          <div class="hero-stat-label">Bulan Berjalan</div>
+          <div class="hero-stat-desc">Program Camera Confidence</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num gold">2</div>
+        <div>
+          <div class="hero-stat-label">Level Saat Ini</div>
+          <div class="hero-stat-desc">Expanding Space Stage</div>
+        </div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num white">100</div>
+        <div>
+          <div class="hero-stat-label">Total Tugas</div>
+          <div class="hero-stat-desc">10 Kategori · Pilih Bebas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEVEL TICKER -->
+<div class="level-section">
+  <div class="level-inner">
+    <div class="level-text">BULAN 3 · LEVEL 2 · <em>EXPANDING SPACE</em> · HANGTUAH JAKARTA</div>
+    <div class="level-pills">
+      <div class="level-pill">1 Video / Hari</div>
+      <div class="level-pill">Kirim via Telegram</div>
+      <div class="level-pill">Bebas Pilih Tugas</div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ══════════════════════════════════════
+     ACCORDION TUGAS — GANTI TABS
+     ══════════════════════════════════════ -->
+<div id="tugas" class="accordion-section">
+  <div class="accordion-wrap">
+    <div class="accordion-header-block reveal">
+      <div class="s-tag">100 Tugas · 10 Kategori</div>
+      <div class="s-title">DAFTAR <span class="accent">TUGAS</span></div>
+      <p style="font-size:14px;color:var(--grey);margin-top:-20px;margin-bottom:0">Klik kategori untuk buka tugas. Centang tugas yang sudah selesai.</p>
+    </div>
+
+    <div id="accordion-list"></div>
+  </div>
+</div>
+
+
+
+<!-- PROGRESS TRACKER -->
+<div class="progress-section">
+  <div class="section">
+    <div class="reveal">
+      <div class="s-tag">Live Tracker</div>
+      <div class="s-title">PROGRESS <span class="accent">TUGAS</span></div>
+    </div>
+    <div class="prog-overall reveal">
+      <div class="prog-label-row">
+        <div class="prog-label-text">TOTAL TUGAS SELESAI</div>
+        <div class="prog-pct" id="pct-label">0%</div>
+      </div>
+      <div class="prog-track">
+        <div class="prog-fill" id="prog-bar" style="width:0%"></div>
+      </div>
+      <div class="prog-milestones">
+        <span class="prog-ms">0</span>
+        <span class="prog-ms">25</span>
+        <span class="prog-ms">50</span>
+        <span class="prog-ms">75</span>
+        <span class="prog-ms">100</span>
+      </div>
+    </div>
+    <div class="prog-cats reveal">
+      <div class="prog-cat"><div class="prog-cat-num c-a" id="done-A">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Dapur</div></div>
+      <div class="prog-cat"><div class="prog-cat-num c-b" id="done-B">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Ruang Tamu</div></div>
+      <div class="prog-cat"><div class="prog-cat-num c-c" id="done-C">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Garasi</div></div>
+      <div class="prog-cat"><div class="prog-cat-num c-d" id="done-D">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Around House</div></div>
+      <div class="prog-cat"><div class="prog-cat-num c-e" id="done-E">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Balkon/Taman</div></div>
+      <div class="prog-cat"><div class="prog-cat-num c-f" id="done-F">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Dining Area</div></div>
+      <div class="prog-cat"><div class="prog-cat-num" style="color:#00B4FF" id="done-G">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Public Mini</div></div>
+      <div class="prog-cat"><div class="prog-cat-num" style="color:#E8192C" id="done-H">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Storytelling</div></div>
+      <div class="prog-cat"><div class="prog-cat-num" style="color:#C896FF" id="done-I">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Review</div></div>
+      <div class="prog-cat"><div class="prog-cat-num" style="color:#F5C518" id="done-J">0</div><div class="prog-cat-of">/10</div><div class="prog-cat-label">Confidence 🔥</div></div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- COACH -->
+<div class="coach-section">
+  <div class="coach-inner">
+    <div class="coach-quote">
+      <div class="coach-text">"Pemain hebat bukan yang tidak pernah jatuh. Tapi yang bangkit setiap kali jatuh — dan tetap mau latihan keesokan harinya."</div>
+      <div class="coach-sig">— SAE+ · <span>Bandung</span> · Program Nazlan</div>
+    </div>
+    <div class="coach-right">
+      <div class="coach-card">
+        <div class="coach-card-icon">🏀</div>
+        <div>
+          <div class="coach-card-title">Basket & Kamera = Sama</div>
+          <div class="coach-card-text">Dribble butuh ribuan repetisi baru natural. Bicara di kamera juga sama — makin sering, makin enak.</div>
+        </div>
+      </div>
+      <div class="coach-card">
+        <div class="coach-card-icon">📍</div>
+        <div>
+          <div class="coach-card-title">Keluar dari Kamar</div>
+          <div class="coach-card-text">Rekam di ruang tamu, teras, dapur, area sekitar rumah. Satu langkah keluar kamar = satu level naik mental.</div>
+        </div>
+      </div>
+      <div class="coach-card">
+        <div class="coach-card-icon">⚡</div>
+        <div>
+          <div class="coach-card-title">1 Video Sehari = Cukup</div>
+          <div class="coach-card-text">Tidak perlu sempurna. 40–60 detik, rekam, kirim. Konsistensi mengalahkan kualitas di tahap ini.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-title">GO NAZLAN!!</div>
+    <div class="closing-sub">Discovery Didadaku · Club Hangtuah Jakarta · SAE+</div>
+    <div class="closing-contact">
+      <a href="tel:085720004206">📞 085720004206</a>
+      <a href="mailto:sigitsae80@gmail.com">✉️ sigitsae80@gmail.com</a>
+      <a href="#">📍 SAE+ · Bandung</a>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">✓ TERSIMPAN</div>
+
+<script>
+// ── DATA ──
+const cats = [
+  { id:'A', icon:'🍳', label:'Dapur',           range:'1–10',   tip:'🚫 Semua video bulan ini WAJIB di luar kamar. Dapur = zona bebas kamera, rekam sambil aktivitas normal.' },
+  { id:'B', icon:'🛋️', label:'Ruang Tamu',      range:'11–20',  tip:'💡 Ruang tamu = ruang paling "manusia". Bicara depan TV atau di sofa terasa paling natural.' },
+  { id:'C', icon:'🚪', label:'Garasi / Depan',  range:'21–30',  tip:'💡 Ini jembatan antara dalam rumah dan dunia luar. Depan pagar = udah "berani".' },
+  { id:'D', icon:'🏠', label:'Around The House', range:'31–40', tip:'💡 Rumah punya banyak sudut menarik. Temukan dan ceritakan — tiap barang ada ceritanya.' },
+  { id:'E', icon:'🌿', label:'Balkon / Taman',  range:'41–50',  tip:'💡 Natural lighting di balkon/taman bikin video kelihatan jauh lebih bagus tanpa effort extra.' },
+  { id:'F', icon:'🍽️', label:'Dining Area',     range:'51–60',  tip:'💡 Food content + cerita keluarga = kombinasi paling relatable di media sosial.' },
+  { id:'G', icon:'🏪', label:'Public Mini',      range:'61–70', tip:'⚡ Level up terbesar bulan ini. Rekam di tempat publik = mental strength naik. Mulai yang paling dekat dulu.' },
+  { id:'H', icon:'📖', label:'Storytelling',    range:'71–80',  tip:'💡 Lokasi baru + cerita personal = konten yang orang mau tonton ulang. Ini kuncinya.' },
+  { id:'I', icon:'🧢', label:'Review',           range:'81–90', tip:'💡 Review di tempat yang berbeda — ruang tamu, teras, dining — beda feel, beda hasil.' },
+  { id:'J', icon:'🔥', label:'Confidence',       range:'91–100',tip:'🏆 Ini tugas terberat dan terpenting. Kalau 5+ dari 10 ini selesai, Nazlan layak naik ke Level 3.' }
+];
+
+const tasks = {
+  A:["Masak makanan favorit versi Nazlan","Mie telur kreasi sendiri","Nasi goreng cepat 5 menit ala atlet","Telur dadar crispy dengan tips","Roti panggang coklat keju","Kentang goreng homemade","Nugget + saus favorit","Omelette atlet isi sesuka hati","Minuman energi atau jus sebelum latihan","Kreasi camilan ringan sebelum latihan"],
+  B:["Cerita film favorit depan TV","Hitung jumlah remote di ruang tamu","Review speaker atau audio rumah","Cerita kebiasaan keluarga di ruang tamu","Tunjukkan spot nongkrong favorit","Review lampu atau dekor ruang tamu","Cerita kenapa suka duduk di sini","Kalau sendiri di rumah biasanya...","Reaction lihat foto lama keluarga","Ceritakan suasana kumpul keluarga"],
+  C:["Review sepatu basket yang dipakai latihan","Review tas atau gear sebelum berangkat","Cerita pagi hari di depan rumah","Tour singkat area depan rumah","Cerita kenapa garasi terasa nyaman","Review kendaraan atau sepeda di rumah","Cerita persiapan latihan di depan rumah","Bicara sambil menunggu kendaraan","Sapa tetangga atau lingkungan sekitar","Review suasana depan rumah saat sore hari"],
+  D:["Senyum ke kamera 10 detik natural","Jalan ke kamera lalu berhenti bicara","Berdiri di halaman sambil cerita","Bicara sambil pegang bola basket","Bicara sambil minum santai","Bicara sambil jalan di area rumah","Bicara sambil stretching ringan","Bicara sambil dribble bola di teras","Bicara sambil ketawa cerita hal lucu","Closing video: ucapkan kalimat penutup percaya diri"],
+  E:["Rekam di balkon dengan pemandangan luar","Review tanaman atau taman kecil di rumah","Ceritakan udara segar saat di balkon","Bicara sambil duduk di kursi taman","Bikin minuman sederhana di outdoor","Review sudut favorit di taman rumah","Ceritakan aktivitas sore di balkon","Bicara sambil dengar suara lingkungan","Bicara natural sambil melihat ke luar","Ceritakan rencana latihan di udara bebas"],
+  F:["Review isi meja makan dan makanan favorit","Ceritakan menu sarapan keluarga","Bikin minuman simple di meja makan","Tunjukkan snack paling sering dimakan","Ceritakan suasana makan bersama keluarga","Review piring atau alat makan favorit","Bicara sambil menyiapkan makan ringan","Ceritakan memori makan di rumah","Review hidangan yang baru dicoba","Bicara natural sambil makan makanan ringan"],
+  G:["Jalan ke minimarket sambil ngobrol ke kamera","Pesan minuman sendiri di cafe","Duduk di area publik 1 menit sambil cerita","Review suasana mall favorit","Jalan di parkiran sambil bikin vlog","Ambil video outdoor sore hari","Beli snack sendiri lalu review","Cerita suasana jalan malam","Video cinematic jalan kaki di luar rumah","POV lagi keluar sendiri"],
+  H:["Cerita pertama kali takut kamera","Cerita tentang basket","Cerita game favorit","Cerita makanan favorit masa kecil","Cerita tempat impian yang ingin dikunjungi","Cerita pengalaman paling malu","Cerita lagu yang sering diputar","Cerita aktivitas weekend favorit","Cerita tentang keluarga","Cerita kalau aku jadi YouTuber..."],
+  I:["Review parfum favorit","Review sepatu favorit","Review headphone atau earphone","Review hoodie favorit","Review kopi favorit di rumah","Review snack favorit","Review tas harian","Review jam tangan favorit","Review spot favorit di rumah","Review gadget yang paling sering dipakai"],
+  J:["Video ngomong tanpa cut 1 menit","Video full body sambil ngomong","Jalan sambil ngomong ke kamera","Ngobrol natural tanpa script","Video sambil ada suara orang lain","Bikin intro ala YouTuber favorit","Bikin closing ala creator favorit","Cerita random 2 menit nonstop","Video outdoor malam hari","Video paling pede versi aku"]
+};
+
+const state = JSON.parse(localStorage.getItem('nazlan-b3')||'{}');
+
+// ── BUILD ACCORDION ──
+function buildAccordion(){
+  const list = document.getElementById('accordion-list');
+  cats.forEach(cat => {
+    const item = document.createElement('div');
+    item.className = 'accordion-item reveal';
+    item.id = 'acc-' + cat.id;
+
+    const doneCnt = countDone(cat.id);
+
+    item.innerHTML = `
+      <button class="accordion-trigger" onclick="toggleAcc('${cat.id}')">
+        <span class="acc-icon">${cat.icon}</span>
+        <span class="acc-label">${cat.range} | ${cat.label}</span>
+        <span class="acc-count" id="cnt-${cat.id}">${doneCnt}/10</span>
+        <span class="acc-arrow">▼</span>
+      </button>
+      <div class="accordion-body" id="body-${cat.id}">
+        <div class="acc-cat-tip">${cat.tip}</div>
+        <div class="tasks-grid" id="grid-${cat.id}"></div>
+      </div>
+    `;
+    list.appendChild(item);
+
+    // render tasks immediately so they exist in DOM
+    renderTasks(cat.id);
+  });
+}
+
+function countDone(cat){
+  return tasks[cat].filter((_,i)=>state[cat+(i+1)]).length;
+}
+
+function renderTasks(cat){
+  const grid = document.getElementById('grid-'+cat);
+  tasks[cat].forEach((task,i)=>{
+    const key = cat+(i+1);
+    const done = state[key]||false;
+    const card = document.createElement('div');
+    card.className='task-card'+(done?' done':'');
+    card.id='card-'+key;
+    card.innerHTML=`<span class="task-num">${String(i+1).padStart(2,'0')}</span><span class="task-text">${task}</span><div class="task-check">${done?'✓':''}</div>`;
+    card.onclick=()=>{
+      state[key]=!state[key];
+      card.classList.toggle('done',state[key]);
+      card.querySelector('.task-check').textContent=state[key]?'✓':'';
+      window.saveToCloud ? window.saveToCloud() : localStorage.setItem('nazlan-b3',JSON.stringify(state));
+    };
+    grid.appendChild(card);
+  });
+}
+
+function toggleAcc(id){
+  const item = document.getElementById('acc-'+id);
+  const wasOpen = item.classList.contains('open');
+  // close all
+  document.querySelectorAll('.accordion-item').forEach(el=>el.classList.remove('open'));
+  // open clicked if wasn't open
+  if(!wasOpen){
+    item.classList.add('open');
+    // smooth scroll so header is visible
+    setTimeout(()=>{
+      const trigger = item.querySelector('.accordion-trigger');
+      const top = trigger.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({top, behavior:'smooth'});
+    }, 50);
+  }
+}
+
+function updateAll(){
+  let total=0;
+  cats.forEach(cat=>{
+    const done = countDone(cat.id);
+    total += done;
+    document.getElementById('done-'+cat.id).textContent=done;
+    document.getElementById('cnt-'+cat.id).textContent=done+'/10';
+  });
+  const pct = Math.round(total/100*100);
+  document.getElementById('prog-bar').style.width=pct+'%';
+  document.getElementById('pct-label').textContent=pct+'%';
+}
+
+// NAV scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
+});
+
+// REVEAL
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=>t.classList.remove('show'), 2500);
+}
+window.showToast = showToast;
+
+// INIT
+buildAccordion();
+updateAll();
+
+setTimeout(()=>{
+  document.querySelectorAll('.accordion-item.reveal').forEach(el=>ro.observe(el));
+},100);
+
+// PWA Service Worker
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>{
+    navigator.serviceWorker.register('sw.js')
+      .then(()=>console.log('SW registered'))
+      .catch(e=>console.log('SW error',e));
+  });
+}
+</script>
+
+<!-- ══ FIREBASE SDK ══ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAo86f2cmiP5_Dw4WLxZzghuAyfgnyXK9E",
+  authDomain: "nazlan-6b2f9.firebaseapp.com",
+  projectId: "nazlan-6b2f9",
+  storageBucket: "nazlan-6b2f9.firebasestorage.app",
+  messagingSenderId: "821920901519",
+  appId: "1:821920901519:web:d8ee059fe85a3108d483fa",
+  measurementId: "G-C5ZMT186LE"
+};
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+const REF = doc(db, 'progress', 'nazlan');
+
+// ── LOAD dari Firestore saat pertama buka ──
+async function loadFromFirestore(){
+  try {
+    const snap = await getDoc(REF);
+    if(snap.exists()){
+      const data = snap.data().state || {};
+      Object.assign(state, data);
+      // re-render semua task card
+      document.querySelectorAll('.task-card').forEach(card=>{
+        const key = card.id.replace('card-','');
+        if(state[key]){
+          card.classList.add('done');
+          card.querySelector('.task-check').textContent='✓';
+          card.querySelector('.task-text').style.textDecoration='line-through';
+        } else {
+          card.classList.remove('done');
+          card.querySelector('.task-check').textContent='';
+          card.querySelector('.task-text').style.textDecoration='';
+        }
+      });
+      updateAll();
+      showToast('☁️ DATA DIMUAT');
+    }
+  } catch(e){
+    console.warn('Firestore load error, pakai localStorage:', e);
+  }
+}
+
+// ── SAVE ke Firestore + localStorage ──
+window.saveToCloud = async function(){
+  // localStorage sebagai fallback
+  localStorage.setItem('nazlan-b3', JSON.stringify(state));
+  updateAll();
+  showToast('⏳ MENYIMPAN...');
+  try {
+    await setDoc(REF, {
+      state: state,
+      lastUpdated: new Date().toISOString(),
+      device: navigator.userAgent.slice(0,50)
+    });
+    showToast('☁️ TERSIMPAN');
+  } catch(e){
+    console.warn('Firestore save error:', e);
+    showToast('💾 LOKAL TERSIMPAN');
+  }
+}
+
+// ── REALTIME LISTENER — coach bisa pantau ──
+onSnapshot(REF, (snap)=>{
+  if(snap.exists() && snap.metadata.hasPendingWrites === false){
+    const remote = snap.data().state || {};
+    // Update hanya kalau beda dari state lokal
+    const localStr  = JSON.stringify(state);
+    const remoteStr = JSON.stringify(remote);
+    if(localStr !== remoteStr){
+      Object.assign(state, remote);
+      document.querySelectorAll('.task-card').forEach(card=>{
+        const key = card.id.replace('card-','');
+        if(state[key]){
+          card.classList.add('done');
+          card.querySelector('.task-check').textContent='✓';
+        } else {
+          card.classList.remove('done');
+          card.querySelector('.task-check').textContent='';
+        }
+      });
+      updateAll();
+    }
+  }
+});
+
+// Override fungsi save global
+window._firebaseReady = true;
+
+// Patch fungsi save() yang dipanggil task card
+window.save = function(){
+  window.saveToCloud ? window.saveToCloud() : null;
+}
+
+loadFromFirestore();
+</script></body>
+</html>

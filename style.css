@@ -14,7 +14,10 @@ header { position: relative; z-index: 10; padding: 0 1.5rem; background: linear-
 .logo { display: flex; flex-direction: column; line-height: 1; }
 .logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--white); letter-spacing: 4px; text-shadow: 3px 3px 0 var(--red); }
 .logo-sub { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--yellow); letter-spacing: 3px; text-transform: uppercase; }
-.badge-phase { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: white; font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 2px; padding: 0.4rem 0.9rem; border-radius: 20px; text-transform: uppercase; white-space: nowrap; }
+.badge-phase { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: white; font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 2px; padding: 0.4rem 0.9rem; border-radius: 20px; text-transform: uppercase; white-space: nowrap; display: inline-flex; align-items: center; }
+.header-actions { display: flex; flex-direction: row; align-items: center; gap: 10px; }
+.badge-link { text-decoration: none; cursor: pointer; transition: opacity 0.2s ease; }
+.badge-link:hover { opacity: 0.8; }
 
 /* STATS BAR */
 .stats-bar { position: relative; z-index: 5; background: var(--blue-mid); border-bottom: 1px solid var(--border); padding: 0 1.5rem; }
