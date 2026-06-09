@@ -27,23 +27,22 @@ function applyViewMode() {
   }
 }
 
-async function loadFromFirestore(month) {
-  try {
-    const snap = await window._firestoreGetDoc(window._firestoreDoc(window._db, 'nazlan', 'month_' + month));
-    return snap.exists() ? snap.data() : { videos: {}, notes: '' };
-  } catch(e) { console.error('Load error:', e); return { videos: {}, notes: '' }; }
-}
-
 async function saveToFirestore(month, data) {
   try {
     await window._firestoreSetDoc(window._firestoreDoc(window._db, 'nazlan', 'month_' + month), data);
     showSaveNotice();
-  } catch(e) { console.error('Save error:', e); alert('Gagal menyimpan. Cek koneksi internet.'); }
+  } catch(e) { console.error('Save error:', e); alert('Gagal menyimpan: ' + e.message); }
 }
 
 function getMonthData(month) {
   if (!localCache[month]) localCache[month] = { videos: {}, notes: '' };
   return localCache[month];
+}
+async function loadFromFirestore(month) {
+  try {
+    const snap = await window._firestoreGetDoc(window._firestoreDoc(window._db, 'nazlan', 'month_' + month));
+    return snap.exists() ? snap.data() : { videos: {}, notes: '' };
+  } catch(e) { console.error('Load error:', e); return { videos: {}, notes: '' }; }
 }
 
 function showSaveNotice() {
