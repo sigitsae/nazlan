@@ -69,20 +69,20 @@
 <div class="main">
   <!-- PHASE TRACKER — CLICKABLE BUTTONS -->
   <div class="phase-track" id="phaseTrack">
-    <div class="phase-item done active-selected" data-month="2" onclick="switchMonth(2)">
+    <div class="phase-item done" data-month="2" onclick="switchMonth(2)">
       <div class="phase-month">BULAN 1</div>
       <div class="phase-stage">Maret · Private Confidence</div>
       <div class="phase-dot done-dot"></div>
     </div>
-    <div class="phase-item current" data-month="3" onclick="switchMonth(3)">
+    <div class="phase-item done" data-month="3" onclick="switchMonth(3)">
       <div class="phase-month">BULAN 2</div>
       <div class="phase-stage">April · Expanding Space</div>
-      <div class="phase-dot current-dot"></div>
+      <div class="phase-dot done-dot"></div>
     </div>
-    <div class="phase-item" data-month="4" onclick="switchMonth(4)">
+    <div class="phase-item current active-selected" data-month="4" onclick="switchMonth(4)">
       <div class="phase-month">BULAN 3</div>
       <div class="phase-stage">Mei · Public Comfort</div>
-      <div class="phase-dot future-dot"></div>
+      <div class="phase-dot current-dot"></div>
     </div>
     <div class="phase-item" data-month="5" onclick="switchMonth(5)">
       <div class="phase-month">BULAN 4</div>
@@ -99,7 +99,7 @@
   </div>
   <!-- PANEL VIDEOS -->
   <div id="panel-videos" class="panel active">
-    <div class="section-title">Daily Videos — <span id="monthLabelTitle">Private Confidence</span></div>
+    <div class="section-title">Daily Videos — <span id="monthLabelTitle">Public Comfort</span></div>
     <div class="video-grid" id="videoGrid"></div>
   </div>
 
@@ -151,9 +151,9 @@
 
   <!-- PANEL REPORT -->
   <div id="panel-report" class="panel">
-    <div class="section-title">Laporan — <span id="reportMonthTitle">Private Confidence</span></div>
+    <div class="section-title">Laporan — <span id="reportMonthTitle">Public Comfort</span></div>
 
-    <div class="report-month" data-month="2">
+    <div class="report-month" data-month="2" style="display:none;">
       <div class="report-card">
         <h3>📋 Bulan 1 — Maret · Private Confidence</h3>
         <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC; margin-bottom:1rem;">Program 30 hari pertama dirancang untuk membangun kepercayaan diri, kenyamanan, dan kebiasaan Nazlan saat berinteraksi dengan kamera.</p>
@@ -259,87 +259,118 @@
     <div class="report-month" data-month="3" style="display:none;">
       <div class="report-card">
         <h3>📋 Bulan 2 — April · Expanding Space</h3>
-        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC; margin-bottom:1rem;">[Ringkasan bulan 2]</p>
-        <ul class="insight-list">
-          <p>Selama hampir 2 bulan, Nazlan menunjukkan peningkatan positif pada bulan pertama dalam hal eye contact, durasi bicara, dan ekspresi. Konten berkembang dari latihan bicara ke review barang pribadi.</p>
-<ul class="insight-list">
-    <li>Ritme disesuaikan menjadi 1 video per hari agar tetap nyaman</li>
-    <li>Mulai mencoba pengambilan visual di luar kamar (area dapur)</li>
-    <li>Penyesuaian waktu dilakukan fleksibel untuk menjaga konsistensi</li><li>Membangun rasa nyaman Nazlan terhadap kamera</li>
-    <li>Melatih keberanian berbicara dan berekspresi</li>
-    <li>Membantu menemukan karakter dan gaya konten yang natural</li>
-    <li>Membentuk konsistensi latihan secara bertahap</li>
-    <li>Mengembangkan kepercayaan diri tanpa tekanan publikasi berlebih</li>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC; margin-bottom:1rem;">Selama hampir 2 bulan, Nazlan menunjukkan peningkatan positif pada bulan pertama dalam hal eye contact, durasi bicara, dan ekspresi. Konten berkembang dari latihan bicara ke review barang pribadi.</p>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li>Ritme disesuaikan menjadi 1 video per hari agar tetap nyaman</li>
+          <li>Mulai mencoba pengambilan visual di luar kamar (area dapur)</li>
+          <li>Penyesuaian waktu dilakukan fleksibel untuk menjaga konsistensi</li>
+          <li>Membangun rasa nyaman Nazlan terhadap kamera</li>
+          <li>Melatih keberanian berbicara dan berekspresi</li>
+          <li>Membantu menemukan karakter dan gaya konten yang natural</li>
+          <li>Membentuk konsistensi latihan secara bertahap</li>
+          <li>Mengembangkan kepercayaan diri tanpa tekanan publikasi berlebih</li>
+        </ul>
+        
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">Program Summary</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Selama hampir 2 bulan, Nazlan menunjukkan peningkatan positif pada bulan pertama dalam hal eye contact, durasi bicara, dan ekspresi. Konten berkembang dari latihan bicara ke review barang pribadi.</p>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li>Ritme disesuaikan menjadi 1 video per hari agar tetap nyaman</li>
+          <li>Mulai mencoba pengambilan visual di luar kamar (area dapur)</li>
+          <li>Penyesuaian waktu dilakukan fleksibel untuk menjaga konsistensi</li>
         </ul>
 
-<hr>
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">Evaluation Result</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Memasuki bulan kedua, target publikasi media sosial berdampak pada kenyamanan. Meskipun kualitas visual meningkat, terjadi penurunan semangat karena belum siap dengan eksposur publik.</p>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li class="bad">Penurunan jumlah pengiriman video signifikan dalam 30 hari terakhir</li>
+          <li class="bad">Kualitas semangat cenderung kembali seperti fase awal latihan</li>
+          <li>Masih dalam tahap mencari karakter personal dan passion konten</li>
+        </ul>
 
-<!-- POINT 2 -->
-<h3>2. Program Summary</h3>
-<p>Selama hampir 2 bulan, Nazlan menunjukkan peningkatan positif pada bulan pertama dalam hal eye contact, durasi bicara, dan ekspresi. Konten berkembang dari latihan bicara ke review barang pribadi.</p>
-<ul class="insight-list">
-    <li>Ritme disesuaikan menjadi 1 video per hari agar tetap nyaman</li>
-    <li>Mulai mencoba pengambilan visual di luar kamar (area dapur)</li>
-    <li>Penyesuaian waktu dilakukan fleksibel untuk menjaga konsistensi</li>
-</ul>
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">Next Phase & Target</h4>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li>Transisi bertahap ke area rumah lain (ruang tamu, teras, dll)</li>
+          <li>Membangun kembali konsistensi 1 video harian tanpa tekanan</li>
+          <li>Eksperimen variasi konten untuk menemukan karakter yang natural</li>
+        </ul>
 
-<hr>
-
-<!-- POINT 3 -->
-<h3>3. Evaluation Result</h3>
-<p>Memasuki bulan kedua, target publikasi media sosial berdampak pada kenyamanan. Meskipun kualitas visual meningkat, terjadi penurunan semangat karena belum siap dengan eksposur publik.</p>
-<ul class="insight-list">
-    <li>Penurunan jumlah pengiriman video signifikan dalam 30 hari terakhir</li>
-    <li>Kualitas semangat cenderung kembali seperti fase awal latihan</li>
-    <li>Masih dalam tahap mencari karakter personal dan passion konten</li>
-</ul>
-
-<hr>
-
-<!-- POINT 4 -->
-<h3>4. Next Phase & Target</h3>
-<ul class="insight-list">
-    <li>Transisi bertahap ke area rumah lain (ruang tamu, teras, dll)</li>
-    <li>Membangun kembali konsistensi 1 video harian tanpa tekanan</li>
-    <li>Eksperimen variasi konten untuk menemukan karakter yang natural</li>
-</ul>
-<hr>
-
-<!-- POINT 5 -->
-<h3>5. Conclusion & Closing</h3>
-<p>Diperlukan kesepakatan bersama antara Nazlan, saya dan pihak orang tua untuk melanjutkan program ini. Secara implisit Nazlan  belum tertarik dengan program Daily Vlog ini.</p>
-
-<hr>
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">Conclusion & Closing</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Diperlukan kesepakatan bersama antara Nazlan, saya dan pihak orang tua untuk melanjutkan program ini. Secara implisit Nazlan belum tertarik dengan program Daily Vlog ini.</p>
       </div>
       <div class="report-card">
         <h3>🎯 Target Bulan 3 — Public Comfort</h3>
         <ul class="insight-list">
           <li>Belum Tersedia</li>
-          
         </ul>
       </div>
     </div>
 
-    <div class="report-month" data-month="4" style="display:none;">
+    <div class="report-month" data-month="4" style="display:block;">
       <div class="report-card">
-        <h3>📋 Bulan 3 — Mei · Public Comfort</h3>
-        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC; margin-bottom:1rem;">[Ringkasan bulan ke 3]</p>
-        <ul class="insight-list">
-          <li>[Pencapaian 1 bulan 3]</li>
-          <li>[Pencapaian 2 bulan 3]</li>
-          <li>[Pencapaian 3 bulan 3]</li>
-          <li>[Pencapaian 4 bulan 3]</li>
-          <li>[Pencapaian 5 bulan 3]</li>
+        <h3>📋 Bulan 3 — Mei · Outdoor Confidence & Storytelling</h3>
+        
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">1. Overview</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Program bulan ketiga difokuskan pada pengembangan kepercayaan diri Nazlan dalam membuat konten di luar rumah. Tujuan utamanya adalah memperluas area nyaman dari lingkungan pribadi menuju berbagai lokasi dan aktivitas yang lebih beragam, sekaligus melatih kemampuan storytelling melalui pengalaman sehari-hari.</p>
+
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">2. Program Execution</h4>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li class="good">Target pengumpulan: <strong>30 video</strong></li>
+          <li class="good">Total video terkumpul: <strong>19 video</strong></li>
+          <li>Konten dibuat di berbagai lokasi seperti lapangan golf, driving range, gym, Pulau Asha, Dufan, rumah, dan area publik lainnya</li>
+          <li>Format konten didominasi oleh voice over yang dipadukan dengan footage aktivitas</li>
         </ul>
+
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">3. Progress & Development</h4>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li class="good">Berhasil mencapai target utama untuk membuat konten di luar rumah</li>
+          <li class="good">Terlihat lebih percaya diri saat merekam di tempat umum</li>
+          <li class="good">Kemampuan voice over berkembang cukup baik dan terdengar semakin natural</li>
+          <li class="good">Mulai mampu membangun alur cerita dalam beberapa video</li>
+          <li class="good">Beberapa konten menunjukkan emosi dan energi yang kuat sehingga lebih menarik ditonton</li>
+          <li class="good">Mulai memahami bahwa aktivitas sehari-hari dapat menjadi bahan konten yang menarik</li>
+        </ul>
+
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">4. Current Condition</h4>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li class="good">Sudah nyaman membuat konten di berbagai lokasi luar rumah</li>
+          <li class="good">Tidak lagi terlihat canggung saat tampil di depan kamera</li>
+          <li class="bad">Masih cukup bergantung pada format voice over</li>
+          <li class="bad">Belum banyak melakukan vlog langsung saat aktivitas berlangsung</li>
+          <li class="bad">Sebagian besar footage masih diambil oleh ibu</li>
+          <li class="bad">Keterlibatan dalam menentukan ide visual dan pengambilan gambar masih perlu ditingkatkan</li>
+        </ul>
+
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">5. Key Insight</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Target bulan ini dapat dikatakan berhasil tercapai karena Nazlan sudah mampu keluar dari zona nyaman dan membuat konten di berbagai lokasi.</p>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;margin-top:0.5rem;">Namun, pola konten masih didominasi oleh voice over. Meskipun kualitas voice over terus berkembang, penggunaan yang terlalu sering mulai terasa berulang pada beberapa video. Konten akan menjadi lebih hidup apabila Nazlan mulai menambahkan vlog langsung, komentar spontan, atau interaksi langsung dengan kamera saat aktivitas berlangsung.</p>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;margin-top:0.5rem;">Selain itu, perkembangan berikutnya tidak hanya tentang berbicara di depan kamera, tetapi juga mulai belajar berpikir seperti seorang content creator yang ikut menentukan footage, sudut pengambilan gambar, dan momen apa yang menarik untuk direkam.</p>
+
+        <h4 style="margin-top:1rem;color:#F5C518;font-size:0.95rem;">6. Conclusion</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Program bulan ketiga berhasil memperluas kepercayaan diri Nazlan dari lingkungan yang nyaman menuju berbagai aktivitas di luar rumah. Kemampuan bercerita terus berkembang dan fondasi sebagai content creator sudah mulai terbentuk. Langkah berikutnya adalah meningkatkan interaksi langsung dengan penonton dan memperbesar keterlibatan dalam proses pembuatan konten.</p>
       </div>
       <div class="report-card">
-        <h3>🎯 Target Bulan 4 — Creator Ready</h3>
-        <ul class="insight-list">
-          <li>[Target 1 bulan 4]</li>
-          <li>[Target 2 bulan 4]</li>
-          <li>[Target 3 bulan 4]</li>
-          <li>[Target 4 bulan 4]</li>
+        <h3>🎯 Target Bulan 4 — Juni · Active Vlogging & Content Ownership</h3>
+        
+        <h4 style="margin-top:0.8rem;color:#F5C518;font-size:0.9rem;margin-bottom:0.4rem;">Fokus Pengembangan</h4>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li>Mengurangi ketergantungan pada voice over</li>
+          <li>Mulai lebih sering berbicara langsung ke kamera</li>
+          <li>Melatih spontanitas saat membuat konten</li>
+          <li>Mulai ikut memikirkan dan mengarahkan footage</li>
+          <li>Meningkatkan peran dalam proses produksi video</li>
         </ul>
+
+        <h4 style="margin-top:0.8rem;color:#F5C518;font-size:0.9rem;margin-bottom:0.4rem;">Target Praktis</h4>
+        <ul class="insight-list" style="font-size:0.85rem;">
+          <li>Target 28–30 video selama bulan Juni</li>
+          <li>Minimal ada segmen vlog langsung pada sebagian besar video</li>
+          <li>Mulai mengambil footage sendiri saat memungkinkan</li>
+          <li>Aktif memberi ide footage yang perlu direkam</li>
+          <li>Membuat konten di mana saja tanpa harus menunggu aktivitas besar atau khusus</li>
+        </ul>
+
+        <h4 style="margin-top:0.8rem;color:#F5C518;font-size:0.9rem;margin-bottom:0.4rem;">Goal Akhir Bulan 4</h4>
+        <p style="font-size:0.85rem; line-height:1.7; color:#B0B8CC;">Nazlan mampu bertransisi dari seorang narrator yang mengandalkan voice over menjadi vlogger yang aktif berkomunikasi langsung dengan penonton. Selain itu, Nazlan mulai memahami peran sebagai content creator secara lebih utuh, yaitu tidak hanya tampil di depan kamera, tetapi juga ikut memikirkan cerita, footage, dan pengalaman yang ingin dibagikan kepada penonton.</p>
       </div>
     </div>
 
