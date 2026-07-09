@@ -1,4 +1,4 @@
-let currentMonth = 4;
+let currentMonth = 5;
 let currentEditDay = null;
 let localCache = {};
 
@@ -323,5 +323,6 @@ document.getElementById('editModal').addEventListener('click', function(e) {
 window.addEventListener('firebaseReady', async () => {
   localCache[currentMonth] = await loadFromFirestore(currentMonth);
   document.getElementById('loadingOverlay').classList.add('hidden');
+  updatePhaseSelection(currentMonth);
   renderAll();
 });
