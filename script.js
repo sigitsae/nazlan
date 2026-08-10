@@ -1,9 +1,9 @@
-let currentMonth = 5;
+let currentMonth = 6;
 let currentEditDay = null;
 let localCache = {};
 
-const MONTH_NAMES = { 2:'Private Confidence', 3:'Expanding Space', 4:'Public Comfort', 5:'Creator Ready' };
-const PHASE_LABELS = { 2:'PRIVATE CONFIDENCE', 3:'EXPANDING SPACE', 4:'PUBLIC COMFORT', 5:'CREATOR READY' };
+const MONTH_NAMES = { 2:'Private Confidence', 3:'Expanding Space', 4:'Public Comfort', 5:'Creator Ready', 6:'Ekspansi' };
+const PHASE_LABELS = { 2:'PRIVATE CONFIDENCE', 3:'EXPANDING SPACE', 4:'PUBLIC COMFORT', 5:'CREATOR READY', 6:'EKSPANSI' };
 const isAdmin = new URLSearchParams(window.location.search).get('admin') === 'true';
 
 function applyViewMode() {

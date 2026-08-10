@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAZLAN — 30 Daily TikTok</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0D0C12;
+  --surface:#14121D;
+  --card:#1A1823;
+  --border:#2A2730;
+  --border-hover:#3A3740;
+  --red:#E8192C;
+  --red-dark:#c4151f;
+  --red-glow:rgba(232,25,44,0.12);
+  --yellow:#F5C518;
+  --text:#FFFFFF;
+  --text-secondary:#8B8A94;
+  --text-muted:#5C5B64;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.5;
+}
+
+/* ===== HEADER ===== */
+.header{
+  padding:3rem 1.5rem 2rem;
+  text-align:center;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,#12111A 0%,var(--bg) 100%);
+  position:relative;
+  overflow:hidden;
+}
+.header::after{
+  content:'';
+  position:absolute;
+  bottom:0;left:50%;
+  transform:translateX(-50%);
+  width:60px;height:3px;
+  background:var(--red);
+  border-radius:2px;
+}
+.header-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.2rem,5vw,3.2rem);
+  letter-spacing:4px;
+  color:var(--text);
+}
+.header-title .accent{color:var(--red)}
+.header-sub{
+  font-size:0.8rem;
+  color:var(--text-muted);
+  margin-top:0.4rem;
+  letter-spacing:3px;
+  font-weight:500;
+}
+
+/* ===== GRID ===== */
+.grid-wrap{
+  max-width:1200px;
+  margin:0 auto;
+  padding:2rem 1.5rem 3rem;
+}
+.video-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1rem;
+  align-items:start;
+}
+@media(min-width:640px){
+  .video-grid{grid-template-columns:repeat(2,1fr);gap:1.25rem}
+}
+@media(min-width:1024px){
+  .video-grid{grid-template-columns:repeat(3,1fr);gap:1.25rem}
+}
+
+/* ===== CARD ===== */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.25rem;
+  transition:border-color .2s,box-shadow .2s;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover{
+  border-color:rgba(232,25,44,.35);
+  box-shadow:0 0 24px var(--red-glow);
+}
+.card-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:.6rem;
+}
+.card-day{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.15rem;
+  letter-spacing:2px;
+  color:var(--red);
+}
+.card-dot{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--border);
+  transition:background .2s;
+}
+.card-dot.on{background:var(--yellow)}
+.card-title{
+  font-size:.95rem;
+  color:var(--text);
+  font-weight:500;
+  line-height:1.4;
+  margin-bottom:.75rem;
+}
+.card-title.empty{
+  color:var(--text-muted);
+  font-style:italic;
+  font-weight:400;
+}
+
+/* ===== EMBED ===== */
+.card-embed{
+  flex:1;
+  min-height:0;
+  margin-bottom:.75rem;
+  overflow:hidden;
+  border-radius:8px;
+}
+.card-embed.has-embed{background:var(--surface)}
+.card-embed .tiktok-embed{
+  width:100%!important;
+  max-width:100%!important;
+  min-width:200px!important;
+  margin:0!important;
+  padding:0!important;
+  border-radius:8px;
+  overflow:hidden;
+}
+.card-embed iframe{border-radius:8px!important}
+.embed-placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:72px;
+  background:var(--surface);
+  border-radius:8px;
+  color:var(--text-muted);
+  font-size:.8rem;
+  border:1px dashed var(--border);
+  letter-spacing:.5px;
+}
+.embed-placeholder.err{
+  color:var(--red);
+  border-color:rgba(232,25,44,.25);
+}
+
+/* ===== ACTIONS ===== */
+.card-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn-edit{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.5rem 1rem;
+  background:var(--red);color:var(--text);
+  border:none;border-radius:8px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.8rem;font-weight:600;
+  cursor:pointer;transition:all .15s;
+}
+.btn-edit:hover{background:var(--red-dark);transform:translateY(-1px)}
+.btn-link{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.5rem 1rem;
+  background:var(--surface);color:var(--yellow);
+  border:1px solid var(--border);border-radius:8px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.8rem;font-weight:600;
+  cursor:pointer;text-decoration:none;
+  transition:all .15s;
+}
+.btn-link:hover{border-color:var(--yellow);transform:translateY(-1px)}
+
+/* ===== MODAL ===== */
+.modal-bg{
+  display:none;
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(6px);
+  z-index:1000;
+  justify-content:center;align-items:center;
+  padding:1rem;
+}
+.modal-bg.open{display:flex}
+.modal-box{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:2rem;
+  width:100%;max-width:480px;
+  max-height:90vh;overflow-y:auto;
+  animation:modalPop .25s ease;
+}
+@keyframes modalPop{
+  from{opacity:0;transform:translateY(16px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.modal-box h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.8rem;letter-spacing:2px;
+  color:var(--yellow);
+  margin-bottom:1.5rem;
+}
+.modal-box label{
+  display:block;
+  font-size:.7rem;font-weight:600;
+  color:var(--text-secondary);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:.4rem;
+  margin-top:1.2rem;
+}
+.modal-box label:first-of-type{margin-top:0}
+.modal-box input[type="text"]{
+  width:100%;
+  background:var(--surface);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:.75rem 1rem;
+  border-radius:8px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.9rem;
+  outline:none;
+  transition:border-color .15s;
+}
+.modal-box input[type="text"]:focus{border-color:var(--red)}
+.modal-box input[type="text"]::placeholder{color:var(--text-muted)}
+.modal-btns{
+  display:flex;gap:.75rem;
+  margin-top:2rem;
+}
+.btn-save{
+  flex:1;padding:.75rem;
+  background:var(--red);color:var(--text);
+  border:none;border-radius:8px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.85rem;font-weight:600;
+  cursor:pointer;transition:background .15s;
+  letter-spacing:.5px;
+}
+.btn-save:hover{background:var(--red-dark)}
+.btn-cancel{
+  flex:1;padding:.75rem;
+  background:var(--surface);color:var(--text-secondary);
+  border:1px solid var(--border);border-radius:8px;
+  font-family:'DM Sans',sans-serif;
+  font-size:.85rem;font-weight:600;
+  cursor:pointer;transition:all .15s;
+  letter-spacing:.5px;
+}
+.btn-cancel:hover{border-color:var(--text-secondary);color:var(--text)}
+
+/* ===== TOAST ===== */
+.toast{
+  position:fixed;
+  bottom:2rem;left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:var(--yellow);color:#0D0C12;
+  padding:.75rem 1.5rem;
+  border-radius:8px;
+  font-size:.85rem;font-weight:700;
+  z-index:2000;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+  pointer-events:none;
+  letter-spacing:.5px;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ===== FOOTER TIP ===== */
+.tip{
+  text-align:center;
+  color:var(--text-muted);
+  font-size:.75rem;
+  margin-top:2.5rem;
+  letter-spacing:.5px;
+  padding-bottom:1rem;
+}
+.tip span{color:var(--yellow)}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--border-hover)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-title">NAZLAN — <span class="accent">30 Daily TikTok</span></div>
+  <div class="header-sub">CONTENT CREATOR JOURNEY</div>
+</header>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="video-grid" id="grid"></div>
+  <div class="tip">Klik <span>✏️ Edit</span> untuk menambahkan judul & link TikTok · Data tersimpan otomatis di browser</div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal-box">
+    <h3>EDIT — <span id="mDay">DAY 1</span></h3>
+    <label>Judul Video</label>
+    <input type="text" id="mTitle" placeholder="Masukkan judul video...">
+    <label>Link TikTok</label>
+    <input type="text" id="mUrl" placeholder="https://www.tiktok.com/@user/video/...">
+    <div class="modal-btns">
+      <button class="btn-cancel" id="btnCancel">Batal</button>
+      <button class="btn-save" id="btnSave">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✓ TERSIMPAN</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ===== CONSTANTS ===== */
+  var KEY = 'nazlan_tiktok_30';
+  var data = [];
+  var editIdx = -1;
+
+  /* ===== DOM REFS ===== */
+  var gridEl    = document.getElementById('grid');
+  var modalBg   = document.getElementById('modalBg');
+  var mDay      = document.getElementById('mDay');
+  var mTitle    = document.getElementById('mTitle');
+  var mUrl      = document.getElementById('mUrl');
+  var btnSave   = document.getElementById('btnSave');
+  var btnCancel = document.getElementById('btnCancel');
+  var toastEl   = document.getElementById('toast');
+
+  /* ===== DATA ===== */
+  function load(){
+    try{
+      var s = localStorage.getItem(KEY);
+      if(s){
+        data = JSON.parse(s);
+        while(data.length < 30) data.push({day:data.length+1,title:'',tiktokUrl:''});
+      } else {
+        init();
+      }
+    } catch(e){ init(); }
+  }
+  function init(){
+    data = [];
+    for(var i=0;i<30;i++) data.push({day:i+1,title:'',tiktokUrl:''});
+  }
+  function persist(){
+    try{ localStorage.setItem(KEY, JSON.stringify(data)); } catch(e){}
+  }
+
+  /* ===== TIKTOK HELPERS ===== */
+  function videoId(url){
+    if(!url) return null;
+    var m = url.match(/\/video\/(\d+)/);
+    return m ? m[1] : null;
+  }
+  function embedHTML(url){
+    var vid = videoId(url);
+    if(!vid) return '<div class="embed-placeholder err">URL tidak dikenali — edit untuk memperbaiki</div>';
+    return '<blockquote class="tiktok-embed" cite="'+url+'" data-video-id="'+vid+'" style="max-width:100%;min-width:200px;"><section></section></blockquote>';
+  }
+
+  /* ===== RENDER ===== */
+  function render(){
+    gridEl.innerHTML = '';
+    for(var i=0;i<data.length;i++){
+      var d = data[i];
+      var hasUrl   = d.tiktokUrl && d.tiktokUrl.trim();
+      var hasTitle = d.title && d.title.trim();
+
+      var c = document.createElement('div');
+      c.className = 'card';
+
+      var emb = hasUrl
+        ? '<div class="card-embed has-embed">'+embedHTML(d.tiktokUrl)+'<a href="'+d.tiktokUrl+'" target="_blank" rel="noopener" class="btn-link" style="margin-top:.5rem;display:inline-flex">▶ Buka TikTok</a></div>'
+        : '<div class="card-embed"><div class="embed-placeholder">Belum ada video TikTok</div></div>';
+
+      c.innerHTML =
+        '<div class="card-top"><div class="card-day">DAY '+d.day+'</div><div class="card-dot'+(hasUrl?' on':'')+'"></div></div>'+
+        '<div class="card-title'+(hasTitle?'':' empty')+'">'+(hasTitle?d.title:'Belum ada judul')+'</div>'+
+        emb+
+        '<div class="card-actions"><button class="btn-edit" data-i="'+i+'">✏️ Edit</button></div>';
+
+      gridEl.appendChild(c);
+    }
+
+    /* attach edit events */
+    var btns = gridEl.querySelectorAll('.btn-edit');
+    for(var j=0;j<btns.length;j++){
+      btns[j].addEventListener('click', function(){
+        openModal(parseInt(this.getAttribute('data-i')));
+      });
+    }
+
+    /* reload tiktok embed script */
+    loadEmbedScript();
+  }
+
+  function loadEmbedScript(){
+    var old = document.querySelectorAll('script[src*="tiktok.com/embed.js"]');
+    for(var k=0;k<old.length;k++) old[k].remove();
+    var sc = document.createElement('script');
+    sc.async = true;
+    sc.src = 'https://www.tiktok.com/embed.js';
+    document.body.appendChild(sc);
+  }
+
+  /* ===== MODAL ===== */
+  function openModal(idx){
+    editIdx = idx;
+    var d = data[idx];
+    mDay.textContent = 'DAY ' + d.day;
+    mTitle.value = d.title || '';
+    mUrl.value   = d.tiktokUrl || '';
+    modalBg.classList.add('open');
+    setTimeout(function(){ mTitle.focus(); },120);
+  }
+  function closeModal(){
+    modalBg.classList.remove('open');
+    editIdx = -1;
+  }
+  function saveEntry(){
+    if(editIdx<0||editIdx>=data.length) return;
+    data[editIdx].title    = mTitle.value.trim();
+    data[editIdx].tiktokUrl = mUrl.value.trim();
+    persist();
+    closeModal();
+    render();
+    showToast();
+  }
+  function showToast(){
+    toastEl.classList.add('show');
+    setTimeout(function(){ toastEl.classList.remove('show'); },2200);
+  }
+
+  /* ===== EVENTS ===== */
+  btnSave.addEventListener('click', saveEntry);
+  btnCancel.addEventListener('click', closeModal);
+  modalBg.addEventListener('click', function(e){
+    if(e.target === modalBg) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+
+  /* ===== INIT ===== */
+  load();
+  render();
+
+})();
+</script>
+</body>
+</html>
